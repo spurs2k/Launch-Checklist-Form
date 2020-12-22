@@ -48,7 +48,7 @@ window.addEventListener("load", () => {
        systemsCheck();
       }
 
-    //Check to make sure Cargo and Fuel Level are numbers, alert if not.
+    
     function systemsCheck(){
       if (isNaN(cargoMassInput.value) || isNaN(fuelLevelInput.value)){
          window.alert("Make sure to enter valid information for each field!")
@@ -58,11 +58,14 @@ window.addEventListener("load", () => {
          }
       }
 
-      //Functions to check the fuel and cargo level
+      
       function fuelCheck(){
          if (fuelLevelInput.value < 10000){
             fuelStatus.innerText = "Fuel level is too low to launch."
             shuttleNotReady();
+         } else if (fuelLevelInput.value >= 10000){
+            fuelStatus.innerText = "Fuel level is high enough to launch."
+            shuttleReady();
          } else {
             cargoCheck();
          }
@@ -72,7 +75,8 @@ window.addEventListener("load", () => {
          if (cargoMassInput.value > 10000){
             cargoStatus.innerText = "Mass is too high for the shuttle launch."
             shuttleNotReady();
-         } else {
+         } else if (cargoMassInput.value <= 10000){
+            cargoStatus.innerText = "Mass is low enough for shuttle launch."
             shuttleReady();
          }
       }
