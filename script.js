@@ -75,7 +75,7 @@ window.addEventListener("load", () => {
          if (cargoMassInput.value > 10000){
             cargoStatus.innerText = "Mass is too high for the shuttle launch."
             shuttleNotReady();
-         } else if (cargoMassInput.value <= 10000){
+         } else (cargoMassInput.value <= 10000){
             cargoStatus.innerText = "Mass is low enough for shuttle launch."
             shuttleReady();
          }
